@@ -1,0 +1,14 @@
+#lang racket
+
+(define (sqr x) (* x x))
+
+(define (prime? p)
+  (let ((lim (sqrt p)))
+    (define (helper i)
+      (if (> i lim)
+          true
+          (if (= 0 (remainder p i))
+              false
+              (helper (+ 2 i)))))
+    (helper 3)))
+
